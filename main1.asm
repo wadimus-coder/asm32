@@ -21,6 +21,9 @@ StackBottom  dd 0
 StackTop     dd 0
 StackPointer dd offset StackTop
 
+number1      dd 0
+number2      dd 0
+
 .code
 start:
 	comment ~
@@ -56,6 +59,8 @@ start:
 	mov ebx,dword ptr[ebp]
 	add ebp,4
 	~
+	
+	comment ~
 	push 4
 	push 3
 	push 2
@@ -67,7 +72,18 @@ start:
 	pop edx
 	pop ebx
 	;-------------
+	~
+	push 2
+	push 1
+	pop number1
+	pop number2
+	;-------------
 	
+	push number2
+	push number1
+	;-----------
+	pop number2
+	pop number1
 	
 
 
